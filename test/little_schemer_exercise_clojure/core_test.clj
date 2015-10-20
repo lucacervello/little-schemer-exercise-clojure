@@ -44,5 +44,12 @@
 
 (deftest insertR-test
   (testing "build a lat with new inserted to the right of the old"
-    (is (= [1 2 3 4 5] (insertR 4 3 [1 2 3 5])))
-    (is (= [6 4 3 5 2] (insertR 3 4 [6 4 5 2])))))
+    (do
+      (is (= [1 2 3 4 5] (insertR 4 3 [1 2 3 5])))
+      (is (= [6 4 3 5 2] (insertR 3 4 [6 4 5 2]))))))
+
+(deftest insertL-test
+  (testing "build a lat with new inserted to the left of the old"
+    (do
+      (is (= [1 2 3 4 5] (insertL 3 4 [1 2 4 5])))
+      (is (= [3 4 5 6 7] (insertL 4 5 [3 5 6 7]))))))
