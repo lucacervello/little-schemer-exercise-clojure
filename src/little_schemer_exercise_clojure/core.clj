@@ -40,3 +40,9 @@
   (if (seq lst)
     (cons (first (first lst))
           (firsts (rest lst)))))
+
+(defn insertR [new old lat]
+  (if (seq lat)
+    (if (= old (first lat))
+      (cons (first lat) (cons new (rest lat)))
+      (cons (first lat) (insertR new old (rest lat))))))

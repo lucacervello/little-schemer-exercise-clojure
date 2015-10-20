@@ -34,7 +34,15 @@
       (is (= ["coffee" "tea" "cup" "and" "hick" "cup"]
              (rember "cup" ["coffee" "cup" "tea" "cup" "and" "hick" "cup"]))))))
 
+;; BASTA USARE GLI ESEMPI DEL TESTO
+;; sono troppo lunghi da scrivere
+
 (deftest firsts-test
   (testing "firsts take the first element of every S-expression"
     (do
       (is (firsts [[1 2 3] [3 2 3] [4 5 3]]) [1 3 4]))))
+
+(deftest insertR-test
+  (testing "build a lat with new inserted to the right of the old"
+    (is (= [1 2 3 4 5] (insertR 4 3 [1 2 3 5])))
+    (is (= [6 4 3 5 2] (insertR 3 4 [6 4 5 2])))))
