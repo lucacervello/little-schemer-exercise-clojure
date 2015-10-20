@@ -2,6 +2,11 @@
   (:require [clojure.test :refer :all]
             [little-schemer-exercise-clojure.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+
+(deftest atom?-test
+  (testing "TRUE if argument is a atom"
+    (do
+      (is (= true (atom? 5)))
+      (is (= true (atom? "a")))
+      (is (= false (atom? [1 2])))
+      (is (= false (atom? '(1 2 3)))))))
