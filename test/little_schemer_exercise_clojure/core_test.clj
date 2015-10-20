@@ -53,3 +53,15 @@
     (do
       (is (= [1 2 3 4 5] (insertL 3 4 [1 2 4 5])))
       (is (= [3 4 5 6 7] (insertL 4 5 [3 5 6 7]))))))
+
+(deftest subst-test
+  (testing "Subsistitute the old with the new in the lat"
+    (do
+      (is (= [1 2 3 4 5] (subst 3 6 [1 2 6 4 5])))
+      (is (= [1 3 5 7 9] (subst 5 4 [1 3 4 7 9]))))))
+
+(deftest multirember-test
+  (testing "remove element in every occurrence"
+    (do
+      (is (= [1 3 4 5] (multirember 2 [1 2 3 2 4 2 5])))
+      (is (= [3 4 5 6] (multirember 2 [3 4 5 6]))))))

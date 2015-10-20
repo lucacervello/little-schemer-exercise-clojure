@@ -52,3 +52,15 @@
     (if (= old (first lat))
       (cons new lat)
       (cons (first lat) (insertL new old (rest lat))))))
+
+(defn subst [new old lat]
+  (if (seq lat)
+    (if (= old (first lat))
+      (cons new (rest lat))
+      (cons (first lat) (subst new old (rest lat))))))
+
+(defn multirember [a lat]
+  (if (seq lat)
+    (if (= a (first lat))
+      (multirember a (rest lat))
+      (cons (first lat) (multirember a (rest lat))))))
