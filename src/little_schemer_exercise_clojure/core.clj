@@ -1,6 +1,6 @@
 (ns little-schemer-exercise-clojure.core)
 
-(defn foo
-  "I don't do a whole lot."
+(defn atom?
+  "Atom in the meaning of Scheme e CommonLisp"
   [x]
-  (println x "Hello, World!"))
+  (not (coll? x)))
