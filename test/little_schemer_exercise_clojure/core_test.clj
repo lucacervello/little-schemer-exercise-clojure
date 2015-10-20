@@ -33,3 +33,8 @@
       (is (= '(1 2 3) (rember 4 '(1 2 3 4))))
       (is (= ["coffee" "tea" "cup" "and" "hick" "cup"]
              (rember "cup" ["coffee" "cup" "tea" "cup" "and" "hick" "cup"]))))))
+
+(deftest firsts-test
+  (testing "firsts take the first element of every S-expression"
+    (do
+      (is (firsts [[1 2 3] [3 2 3] [4 5 3]]) [1 3 4]))))
