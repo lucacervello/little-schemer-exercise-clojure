@@ -34,5 +34,9 @@
   (if (seq lst)
     (if (= a (first lst))
       (rest lst)
-      (cons (first lst) (rember a (rest lst))))
-    []))
+      (cons (first lst) (rember a (rest lst))))))
+
+(defn firsts [lst]
+  (if (seq lst)
+    (cons (first (first lst))
+          (firsts (rest lst)))))
