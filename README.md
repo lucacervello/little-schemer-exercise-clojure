@@ -1,10 +1,10 @@
 # little-schemer-exercise-clojure
 
-A Clojure library designed to ... well, that part is up to you.
+My little schemer exercise in clojure
 
 ## Usage
 
-FIXME
+lein test
 
 ## License
 
