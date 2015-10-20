@@ -27,3 +27,12 @@
     (or (= a (first lst))
         (member? a (rest lst)))
     false))
+
+;; 3. CONS THE MAGNIFICENT
+
+(defn rember [a lst]
+  (if (seq lst)
+    (if (= a (first lst))
+      (rest lst)
+      (cons (first lst) (rember a (rest lst))))
+    []))
