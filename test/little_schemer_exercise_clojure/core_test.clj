@@ -24,3 +24,12 @@
     (do
       (is (= true (member? "tea" ["coffee" "tea" "or" "milk"])))
       (is (= false (member? "poached" ["fried" "eggs" "and" "scrambled" "eggs"]))))))
+
+(deftest rember-test
+  (testing "rember remove a element from the list"
+    (do
+      (is (= ["lamb" "chops" "and" "jelly"]
+             (rember "mint" ["lamb" "chops" "and" "mint" "jelly"])))
+      (is (= '(1 2 3) (rember 4 '(1 2 3 4))))
+      (is (= ["coffee" "tea" "cup" "and" "hick" "cup"]
+             (rember "cup" ["coffee" "cup" "tea" "cup" "and" "hick" "cup"]))))))
