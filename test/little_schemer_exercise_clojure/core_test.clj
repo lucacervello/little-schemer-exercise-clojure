@@ -81,3 +81,35 @@
   (testing "substitute every element in a vector"
     (do
       (is (= [1 2 4 2] (multisubst 2 3 [1 3 4 3]))))))
+
+;; 4. NUMBERS GAMES
+
+(deftest plus-test
+  (testing "plus only with zero? inc dec"
+    (do
+      (is (= 5 (plus 2 3)))
+      (is (= 4
+             (plus 2 2)
+             (plus 4 0)
+             (plus 0 4))))))
+
+(deftest minus-test
+  (testing "minus only with zero? inc dec"
+    (are [x y] (= x y)
+      2 (minus 4 2)
+      -2 (minus 2 4))))
+
+(deftest addtup-test
+  (testing "add every atom in a tuple"
+    (are [x y] (= x y)
+      6 (addtup [1 2 3])
+      10 (addtup [1 2 3 4]))))
+
+(deftest mult-test
+  (testing "mult with only zero? inc dec"
+    (are [x y] (= x y)
+      4 (mult 2 2)
+      4 (mult 4 1)
+      0 (mult 4 0)
+      0 (mult 0 4)
+      4 (mult 1 4))))

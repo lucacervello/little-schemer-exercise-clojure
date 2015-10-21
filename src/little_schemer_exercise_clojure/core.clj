@@ -80,6 +80,43 @@
 (defn multisubst [new old lat]
   (if (seq lat)
     (if (= old (first lat))
-
-      (multisubst new old (rest lat))
+      (cons new (multisubst new old (rest lat)))
       (cons (first lat) (multisubst new old (rest lat))))))
+
+
+;; 4. NUMBERS GAMES
+
+(defn plus
+  "define plus only with zero? inc dec"
+  [n m]
+  (if (zero? m)
+    n
+    (plus (inc n) (dec m))))
+
+(defn minus
+  "define minus only with zero inc dec"
+  [n m]
+  (if (zero? m)
+    n
+    (minus (dec n) (dec m))))
+
+;; The book example is different
+
+(defn addtup
+  "apply with +"
+  [lat]
+  (if (seq lat)
+    (+ (first lat) (addtup (rest lat)))
+    0))
+
+(defn addtup-tail-rec "tail recursive addtup"
+  [lat]
+  (loop [x lat]
+    (if-not (seq x)
+      0
+      (recur (rest x)))))
+
+(defn mult [n m]
+  (if (zero? m)
+    0
+    (plus n (mult n (dec m)))))
