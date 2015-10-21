@@ -113,3 +113,11 @@
       0 (mult 4 0)
       0 (mult 0 4)
       4 (mult 1 4))))
+
+(deftest tup+-test
+  (testing "Add number in the same position"
+    (are [x y] (= x y)
+      [3 4 5] (tup+ [1 2 3] [2 2 2])
+      [7 2 9 3] (tup+ [4 1 4 1] [3 1 5 2])
+      [1 2 3 5] (tup+ [0 2] [1 0 3 5])
+      [1 2 3 4] (tup+ [1 0 3 4] [0 2]))))

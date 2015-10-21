@@ -120,3 +120,10 @@
   (if (zero? m)
     0
     (plus n (mult n (dec m)))))
+
+(defn tup+ [tup1 tup2]
+  (cond
+    (not (seq tup1)) tup2
+    (not (seq tup2)) tup1
+    :else (cons (plus (first tup1) (first tup2))
+                (tup+ (rest tup1) (rest tup2)))))
