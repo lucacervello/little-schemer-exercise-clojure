@@ -127,3 +127,15 @@
     (not (seq tup2)) tup1
     :else (cons (plus (first tup1) (first tup2))
                 (tup+ (rest tup1) (rest tup2)))))
+
+(defn greater-then [n m]
+  (cond
+    (zero? n) false
+    (zero? m) true
+    :else (greater-then (dec n) (dec m))))
+
+(defn minor-then [n m]
+  (cond
+    (zero? m) false
+    (zero? n) true
+    :else (minor-then (dec n) (dec m))))

@@ -121,3 +121,17 @@
       [7 2 9 3] (tup+ [4 1 4 1] [3 1 5 2])
       [1 2 3 5] (tup+ [0 2] [1 0 3 5])
       [1 2 3 4] (tup+ [1 0 3 4] [0 2]))))
+
+(deftest greater-then-test
+  (testing "> with zero? inc dec"
+    (are [x y] (= (> x y) (greater-then x y))
+      4 5
+      5 4
+      5 5)))
+
+(deftest minor-then-test
+  (testing "< with zero? inc dec"
+    (are [x y] (= (< x y) (minor-then x y))
+      4 5
+      5 4
+      5 5)))
