@@ -65,3 +65,19 @@
     (do
       (is (= [1 3 4 5] (multirember 2 [1 2 3 2 4 2 5])))
       (is (= [3 4 5 6] (multirember 2 [3 4 5 6]))))))
+
+(deftest multiinsertR-test
+  (testing "insert element in every occurence to the right"
+    (do
+      (is (= [1 2 3 2 3] (multiinsertR 3 2 [1 2 2])))
+      (is (= [3 4 5 3 4] (multiinsertR 4 3 [3 5 3]))))))
+
+(deftest multiinsertL-test
+  (testing "insert element in every occurrence to the left"
+    (do
+      (is (= [3 1 4 5 3 1] (multiinsertL 3 1 [1 4 5 1]))))))
+
+(deftest multisubst-test
+  (testing "substitute every element in a vector"
+    (do
+      (is (= [1 2 4 2] (multisubst 2 3 [1 3 4 3]))))))

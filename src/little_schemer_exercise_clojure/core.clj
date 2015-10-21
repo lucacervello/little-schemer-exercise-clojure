@@ -64,3 +64,22 @@
     (if (= a (first lat))
       (multirember a (rest lat))
       (cons (first lat) (multirember a (rest lat))))))
+
+(defn multiinsertR [new old lat]
+  (if (seq lat)
+    (if (= old (first lat))
+      (cons (first lat) (cons new (multiinsertR new old (rest lat))))
+      (cons (first lat) (multiinsertR new old (rest lat))))))
+
+(defn multiinsertL [new old lat]
+  (if (seq lat)
+    (if (= old (first lat))
+      (cons new (cons (first lat) (multiinsertL new old (rest lat))))
+      (cons (first lat) (multiinsertL new old (rest lat))))))
+
+(defn multisubst [new old lat]
+  (if (seq lat)
+    (if (= old (first lat))
+
+      (multisubst new old (rest lat))
+      (cons (first lat) (multisubst new old (rest lat))))))
