@@ -142,3 +142,10 @@
       4 4
       3 4
       4 3)))
+
+(deftest pow-test
+  (testing "pow functions power"
+    (are [x y] (= (reduce * (repeat y x)) (pow x y))
+      2 2
+      3 2
+      2 3)))

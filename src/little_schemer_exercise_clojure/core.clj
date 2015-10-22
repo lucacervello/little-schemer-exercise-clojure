@@ -142,3 +142,8 @@
 
 (defn equal [n m]
   (not (or (greater-then n m) (minor-then n m))))
+
+(defn pow [n m]
+  (if (zero? m)
+    1
+    (mult n (pow n (dec m)))))
