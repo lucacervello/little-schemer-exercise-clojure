@@ -139,3 +139,6 @@
     (zero? m) false
     (zero? n) true
     :else (minor-then (dec n) (dec m))))
+
+(defn equal [n m]
+  (not (or (greater-then n m) (minor-then n m))))

@@ -135,3 +135,10 @@
       4 5
       5 4
       5 5)))
+
+(deftest equal-test
+  (testing "equal with greater-than and minus-then"
+    (are [x y] (= (= x y) (equal x y))
+      4 4
+      3 4
+      4 3)))
