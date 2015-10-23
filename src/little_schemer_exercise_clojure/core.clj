@@ -152,3 +152,8 @@
   (if (minor-then n m)
     0
     (inc (division (- n m) m))))
+
+(defn length [lat]
+  (if (seq lat)
+    (inc (length (rest lat)))
+    0))

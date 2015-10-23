@@ -157,3 +157,11 @@
       6 3
       6 2
       1 5)))
+
+(deftest length-test
+  (testing "count how much item there is in a sequence"
+    (are [x] (= (count x) (length x))
+      [1 2 3 4 5]
+      [2 3]
+      []
+      [2 3 4 5 6 7 2 4 5])))
