@@ -149,3 +149,11 @@
       2 2
       3 2
       2 3)))
+
+(deftest division-test
+  (testing "division functions"
+    (are [x y] (= (quot x y) (division x y))
+      2 2
+      6 3
+      6 2
+      1 5)))

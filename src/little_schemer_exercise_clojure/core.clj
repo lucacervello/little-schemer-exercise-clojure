@@ -147,3 +147,8 @@
   (if (zero? m)
     1
     (mult n (pow n (dec m)))))
+
+(defn division [n m]
+  (if (minor-then n m)
+    0
+    (inc (division (- n m) m))))
