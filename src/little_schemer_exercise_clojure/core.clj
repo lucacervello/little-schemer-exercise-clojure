@@ -167,3 +167,9 @@
   (if (or (zero? n) (not (seq lat)))
     (rest lat)
     (cons (first lat) (rempick (dec n) (rest lat)))))
+
+(defn no-nums [lat]
+  (cond
+    (empty? lat) []
+    (number? (first lat)) (no-nums (rest lat))
+    :else (cons (first lat) (no-nums (rest lat)))))

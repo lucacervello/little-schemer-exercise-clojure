@@ -179,3 +179,11 @@
       [1 2 3 4] 0 [0 1 2 3 4]
       [1 2] 2 [1 2 3]
       [1 2] 3 [1 2])))
+
+(deftest no-nums-test
+  (testing "remove number from the list"
+    (are [x] (= (filter #(not (number? %)) x)
+                (no-nums x))
+      [1 2 3 4]
+      ["1" true]
+      ["1" 2 3 false])))
