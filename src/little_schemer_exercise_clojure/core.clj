@@ -157,3 +157,8 @@
   (if (seq lat)
     (inc (length (rest lat)))
     0))
+
+(defn pick [n lat]
+  (if (zero? n)
+    (first lat)
+    (pick (dec n) (rest lat))))

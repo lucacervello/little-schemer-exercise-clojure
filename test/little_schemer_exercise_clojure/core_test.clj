@@ -165,3 +165,10 @@
       [2 3]
       []
       [2 3 4 5 6 7 2 4 5])))
+
+(deftest pick-test
+  (testing "equals to get"
+    (are [x y] (= (get y x) (pick x y))
+      0 [1 2 3]
+      3 [1 2 3 4 5 6]
+      6 [1 2])))
