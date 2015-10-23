@@ -162,3 +162,8 @@
   (if (zero? n)
     (first lat)
     (pick (dec n) (rest lat))))
+
+(defn rempick [n lat]
+  (if (or (zero? n) (not (seq lat)))
+    (rest lat)
+    (cons (first lat) (rempick (dec n) (rest lat)))))

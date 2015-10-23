@@ -172,3 +172,10 @@
       0 [1 2 3]
       3 [1 2 3 4 5 6]
       6 [1 2])))
+
+(deftest rempick-test
+  (testing "rempick remove an element in the given position"
+    (are [res x y] (= res (rempick x y))
+      [1 2 3 4] 0 [0 1 2 3 4]
+      [1 2] 2 [1 2 3]
+      [1 2] 3 [1 2])))
