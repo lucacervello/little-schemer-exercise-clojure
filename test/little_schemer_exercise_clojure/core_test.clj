@@ -187,3 +187,10 @@
       [1 2 3 4]
       ["1" true]
       ["1" 2 3 false])))
+
+(deftest all-nums-test
+  (testing "remove all not numbers element"
+    (are [x] (= (filter number? x)
+                (all-nums x))
+      [1 2 3 4]
+      [1 true "1"])))

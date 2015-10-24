@@ -164,7 +164,7 @@
     (pick (dec n) (rest lat))))
 
 (defn rempick [n lat]
-  (if (or (zero? n) (not (seq lat)))
+  (if (or (zero? n) (empty? lat))
     (rest lat)
     (cons (first lat) (rempick (dec n) (rest lat)))))
 
@@ -173,3 +173,9 @@
     (empty? lat) []
     (number? (first lat)) (no-nums (rest lat))
     :else (cons (first lat) (no-nums (rest lat)))))
+
+(defn all-nums [lat]
+  (cond
+    (empty? lat) []
+    (not (number? (first lat))) (all-nums (rest lat))
+    :else (cons (first lat) (all-nums (rest lat)))))
