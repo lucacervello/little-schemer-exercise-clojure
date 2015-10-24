@@ -179,3 +179,10 @@
     (empty? lat) []
     (not (number? (first lat))) (all-nums (rest lat))
     :else (cons (first lat) (all-nums (rest lat)))))
+
+(defn occur [a lat]
+  (if (seq lat)
+    (if (= a (first lat))
+      (inc (occur a (rest lat)))
+      (occur a (rest lat)))
+    0))

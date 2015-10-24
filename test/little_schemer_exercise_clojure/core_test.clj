@@ -194,3 +194,12 @@
                 (all-nums x))
       [1 2 3 4]
       [1 true "1"])))
+
+(deftest occur-test
+  (testing "count the occurence of an element"
+    (are [x y] (= (get (frequencies y) x 0)
+                  (occur x y))
+      2 [1 2 3 4 2 2]
+      1 [3 5 6]
+      8 []
+      7 [7 7])))
