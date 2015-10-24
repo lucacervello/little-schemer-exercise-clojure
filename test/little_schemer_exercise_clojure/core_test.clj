@@ -210,3 +210,9 @@
   (testing "remove element in nested map"
     (are [x y z] (= x (rember* y z))
       [2 3 [4 5] [6] [2]] 1 [1 2 3 [1 4 5] [6] [1 2]])))
+
+(deftest insertR*-test
+  (testing "insert in nested map"
+    (are [new old lat res] (= res
+                              (insertR* new old lat))
+      1 2 [2 3 [2] [5 4 2]] [2 1 3 [2 1] [5 4 2 1]])))
