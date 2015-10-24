@@ -216,3 +216,15 @@
     (are [new old lat res] (= res
                               (insertR* new old lat))
       1 2 [2 3 [2] [5 4 2]] [2 1 3 [2 1] [5 4 2 1]])))
+
+(deftest occur*-test
+  (testing "count the number of occurencies in a nested map"
+    (are [res elem lst] (= res
+                           (occur* elem lst))
+      7 1 [1 [1 2 1] 1 1 [2 [4 1] 1]])))
+
+(deftest subst*-test
+  (testing "substitute in a nested structure"
+    (are [res new old lat] (= res
+                              (subst* new old lat))
+      [1 2 [1 2 5]] 1 3 [3 2 [3 2 5]])))

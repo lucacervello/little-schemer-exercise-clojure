@@ -212,3 +212,20 @@
                           (cons (first lat) (insertR* new old (rest lat))))
     :else (cons (insertR* new old (first lat))
                 (insertR* new old (rest lat)))))
+
+(defn occur* [a lat]
+  (cond
+    (empty? lat) 0
+    (atom? (first lat)) (if (= a (first lat))
+                          (inc (occur* a (rest lat)))
+                          (occur* a (rest lat)))
+    :else (+ (occur* a (first lat)) (occur* a (rest lat)))))
+
+(defn subst* [new old lat]
+  (cond
+    (empty? lat) []
+    (atom? (first lat)) (if (= old (first lat))
+                          (cons new (subst* new old (rest lat)))
+                          (cons (first lat) (subst* new old (rest lat))))
+    :else (cons (subst* new old (first lat))
+                (subst* new old (rest lat)))))
