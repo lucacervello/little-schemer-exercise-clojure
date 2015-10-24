@@ -186,3 +186,6 @@
       (inc (occur a (rest lat)))
       (occur a (rest lat)))
     0))
+
+(defn one? [n]
+  (= n 1))
