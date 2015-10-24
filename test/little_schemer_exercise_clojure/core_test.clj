@@ -205,3 +205,8 @@
       7 [7 7])))
 
 ;; one's test omitted
+
+(deftest rember*-test
+  (testing "remove element in nested map"
+    (are [x y z] (= x (rember* y z))
+      [2 3 [4 5] [6] [2]] 1 [1 2 3 [1 4 5] [6] [1 2]])))

@@ -189,3 +189,16 @@
 
 (defn one? [n]
   (= n 1))
+
+
+;;; 5. *OH MY GAWD*: IT'S FULL OF STARS
+
+(defn rember* [a lat]
+  (cond
+    (empty? lat) []
+    (atom? (first lat)) (if (= (first lat) a)
+                          (rember* a (rest lat))
+                          (cons (first lat)
+                                (rember* a (rest lat))))
+    :else (cons (rember* a (first lat))
+                (rember* a (rest lat)))))
