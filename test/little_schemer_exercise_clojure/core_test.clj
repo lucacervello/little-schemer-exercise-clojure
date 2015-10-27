@@ -246,3 +246,10 @@
     (are [res lat] (= res (leftmost lat))
       1 [[[1 0] 2] 3]
       1 [1 2])))
+
+(deftest eqlist?-test
+  (testing "eqlist? return true if two collecions are equals"
+    (are [x y] (= (= x y) (eqlist? x y))
+      [1 [2 3] 2] [1 [2 3] 2]
+      [2 3 4 2] [2 3 3 3]
+      [1 [2 [3 [4]]]] [1 [2 [3 [4]]]])))

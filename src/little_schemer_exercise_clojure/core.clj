@@ -250,3 +250,15 @@
   (if (atom? (first lat))
     (first lat)
     (leftmost (first lat))))
+
+(defn eqlist? [col1 col2]
+  (cond
+    (and (empty? col1) (empty? col2)) true
+    (or (empty? col1) (empty? col2)) false
+    (and (atom? (first col1)) (atom? (first col2))) (and (= (first col1)
+                                                           (first col2))
+                                                        (eqlist? (rest col1)
+                                                                 (rest col2)))
+    (or (atom? (first col1)) (atom? (first col2))) false
+    :else (and (eqlist? (first col1) (first col2))
+               (eqlist? (rest col1) (rest col2)))))
