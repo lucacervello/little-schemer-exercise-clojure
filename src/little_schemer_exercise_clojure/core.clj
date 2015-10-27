@@ -239,3 +239,9 @@
                           (cons (first lat) (insertL* new old (rest lat))))
     :else (cons (insertL* new old (first lat))
                 (insertL* new old (rest lat)))))
+
+(defn member* [a lat]
+  (cond
+    (empty? lat) false
+    (atom? (first lat)) (or (= (first lat) a) (member* a (rest lat)))
+    :else (or (member* a (first lat)) (member* a (rest lat)))))

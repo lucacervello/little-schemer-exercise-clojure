@@ -234,3 +234,9 @@
     (are [res new old lat] (= res
                               (insertL* new old lat))
       [1 2 [3 1 2 4] [1 2]] 1 2 [2 [3 2 4] [2]])))
+
+(deftest member*-test
+  (testing "member in a nested structure"
+    (are [res a lat] (= res (member* a lat))
+      true 1 [2 [3 1]]
+      false 1 [2 [3 4 5]])))
