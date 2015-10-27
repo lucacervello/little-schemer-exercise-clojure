@@ -229,3 +229,13 @@
                           (cons (first lat) (subst* new old (rest lat))))
     :else (cons (subst* new old (first lat))
                 (subst* new old (rest lat)))))
+
+(defn insertL* [new old lat]
+  (cond
+    (empty? lat) []
+    (atom? (first lat)) (if (= old (first lat))
+                          (cons new (cons (first lat)
+                                          (insertL* new old (rest lat))))
+                          (cons (first lat) (insertL* new old (rest lat))))
+    :else (cons (insertL* new old (first lat))
+                (insertL* new old (rest lat)))))
