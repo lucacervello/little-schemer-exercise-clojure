@@ -253,3 +253,12 @@
       [1 [2 3] 2] [1 [2 3] 2]
       [2 3 4 2] [2 3 3 3]
       [1 [2 [3 [4]]]] [1 [2 [3 [4]]]])))
+
+
+;;; 6. SHADOWS
+
+(deftest numbered?-test
+  (testing "numbered? return true if is a valid expression"
+    (are [res expr] (= res (numbered? expr))
+      true '(4 + (6 x 7))
+      false '(4 + (x 7)))))

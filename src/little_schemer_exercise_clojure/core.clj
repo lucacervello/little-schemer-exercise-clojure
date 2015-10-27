@@ -262,3 +262,13 @@
     (or (atom? (first col1)) (atom? (first col2))) false
     :else (and (eqlist? (first col1) (first col2))
                (eqlist? (rest col1) (rest col2)))))
+
+
+;;; 6. SHADOWS
+
+
+(defn numbered? [aexp]
+  (cond
+    (atom? aexp) (number? aexp)
+    :else (and (numbered? (first aexp))
+               (numbered? (first (rest (rest aexp)))))))
