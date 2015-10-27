@@ -240,3 +240,9 @@
     (are [res a lat] (= res (member* a lat))
       true 1 [2 [3 1]]
       false 1 [2 [3 4 5]])))
+
+(deftest leftmost-test
+  (testing "leftmost give a the most left element in a collection"
+    (are [res lat] (= res (leftmost lat))
+      1 [[[1 0] 2] 3]
+      1 [1 2])))

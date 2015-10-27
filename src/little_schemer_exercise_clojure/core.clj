@@ -245,3 +245,8 @@
     (empty? lat) false
     (atom? (first lat)) (or (= (first lat) a) (member* a (rest lat)))
     :else (or (member* a (first lat)) (member* a (rest lat)))))
+
+(defn leftmost [lat]
+  (if (atom? (first lat))
+    (first lat)
+    (leftmost (first lat))))
