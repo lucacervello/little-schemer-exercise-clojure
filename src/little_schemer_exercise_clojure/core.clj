@@ -300,3 +300,13 @@
     (empty? lat) []
     (member? (first lat) (rest lat)) (make-set (rest lat))
     :else (cons (first lat) (make-set (rest lat)))))
+
+(defn make-set-with-multi [lat]
+  (if (empty? lat)
+    []
+    (cons (first lat)
+          (make-set-with-multi (multirember (first lat) (rest lat))))))
+
+(defn make-set1 [lat]
+  (if (seq lat)
+    (cons (first lat) (make-set1 (multirember (first lat) (rest lat))))))

@@ -279,9 +279,17 @@
       [0 0 0 0]
       [1 2 3 1])))
 
+;;; This is not a good test, because to compare the two set,
+;;; I use set to trasform the list in a set, but set automatically
+;;; build a set so i don't know if my function is correct
+;;; I use too many times the word set hahaahaha
+
 (deftest make-set-test
   (testing "make a set from a collection"
-    (are [x] (= (into #{} x) (set (make-set x)))
+    (are [x] (= (into #{} x)
+                (set (make-set x))
+                (set (make-set-with-multi x))
+                (set (make-set1 x)))
       [1 2 3]
       [1 1 1]
       [1 2 2])))
