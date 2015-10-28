@@ -272,3 +272,16 @@
     (atom? aexp) (number? aexp)
     :else (and (numbered? (first aexp))
                (numbered? (first (rest (rest aexp)))))))
+
+(defn value [nexp]
+  (cond
+    (atom? nexp) nexp
+    (= (first (rest nexp)) '+) (+ (value (first nexp))
+                                   (value (first (rest (rest nexp)))))
+    (= (first (rest nexp)) 'x) (* (value (first nexp))
+                                   (value (first (rest (rest nexp)))))
+    :else (pow (value (first nexp))
+               (value (first (rest (rest nexp)))))))
+
+;; Ho deciso di saltare l'ultima parte del capitolo...
+;; quella con le parentesi al posto dei numeri
