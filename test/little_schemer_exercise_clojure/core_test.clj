@@ -278,3 +278,10 @@
       [1 2 2 4]
       [0 0 0 0]
       [1 2 3 1])))
+
+(deftest make-set-test
+  (testing "make a set from a collection"
+    (are [x] (= (into #{} x) (set (make-set x)))
+      [1 2 3]
+      [1 1 1]
+      [1 2 2])))

@@ -257,8 +257,8 @@
     (or (empty? col1) (empty? col2)) false
     (and (atom? (first col1)) (atom? (first col2))) (and (= (first col1)
                                                            (first col2))
-                                                        (eqlist? (rest col1)
-                                                                 (rest col2)))
+                                                         (eqlist? (rest col1)
+                                                                  (rest col2)))
     (or (atom? (first col1)) (atom? (first col2))) false
     :else (and (eqlist? (first col1) (first col2))
                (eqlist? (rest col1) (rest col2)))))
@@ -277,9 +277,9 @@
   (cond
     (atom? nexp) nexp
     (= (first (rest nexp)) '+) (+ (value (first nexp))
-                                   (value (first (rest (rest nexp)))))
+                                  (value (first (rest (rest nexp)))))
     (= (first (rest nexp)) 'x) (* (value (first nexp))
-                                   (value (first (rest (rest nexp)))))
+                                  (value (first (rest (rest nexp)))))
     :else (pow (value (first nexp))
                (value (first (rest (rest nexp)))))))
 
@@ -294,3 +294,9 @@
     (empty? lat) true
     (member? (first lat) (rest lat)) false
     :else (set? (rest lat))))
+
+(defn make-set [lat]
+  (cond
+    (empty? lat) []
+    (member? (first lat) (rest lat)) (make-set (rest lat))
+    :else (cons (first lat) (make-set (rest lat)))))
