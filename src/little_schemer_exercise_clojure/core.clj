@@ -285,3 +285,12 @@
 
 ;; Ho deciso di saltare l'ultima parte del capitolo...
 ;; quella con le parentesi al posto dei numeri
+
+
+;;; 7. FRIENDS AND RELATIONS
+
+(defn set? [lat]
+  (cond
+    (empty? lat) true
+    (member? (first lat) (rest lat)) false
+    :else (set? (rest lat))))

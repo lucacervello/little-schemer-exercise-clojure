@@ -1,6 +1,6 @@
 (ns little-schemer-exercise-clojure.core-test
   (:require [clojure.test :refer :all]
-            [little-schemer-exercise-clojure.core :refer :all]))
+            [little-schemer-exercise-clojure.core :refer :all :as lsec]))
 
 
 (deftest atom?-test
@@ -165,7 +165,7 @@
       [2 3]
       []
       [2 3 4 5 6 7 2 4 5])))
-
+{}
 (deftest pick-test
   (testing "equals to get"
     (are [x y] (= (get y x) (pick x y))
@@ -262,3 +262,19 @@
     (are [res expr] (= res (numbered? expr))
       true '(4 + (6 x 7))
       false '(4 + (x 7)))))
+
+(deftest value-test
+  (testing "evaluate expression like this 5 x 4"
+    (are [w y z] (= (* (+ w y) z) (value '((w + y) x z)))
+      3 4 5
+      1 2 3
+      4 2 3)))
+
+(deftest set?-test
+  (testing "set? hand made"
+    (are [x] (= (set? x)
+                (lsec/set? x))
+      [1 2 3 4]
+      [1 2 2 4]
+      [0 0 0 0]
+      [1 2 3 1])))

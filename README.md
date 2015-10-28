@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/lucacervello/little-schemer-exercise-clojure.svg?branch=master)](https://travis-ci.org/lucacervello/little-schemer-exercise-clojure)
 
 
-My little schemer exercise in clojure
+My little schemer exercises in clojure
 
 ## Usage
 
