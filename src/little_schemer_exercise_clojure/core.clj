@@ -334,3 +334,9 @@
     (member? (first set1) set2) (cons (first set1)
                                       (intersect (rest set1) set2))
     :else (intersect (rest set1) set2)))
+
+(defn union [set1 set2]
+  (cond
+    (empty? set1) set2
+    (member? (first set1) set2) (union (rest set1) set2)
+    :else (cons (first set1) (union (rest set1) set2))))

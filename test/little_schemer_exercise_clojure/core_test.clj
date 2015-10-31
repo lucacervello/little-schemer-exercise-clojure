@@ -323,3 +323,12 @@
       [1 2 3 4] [3 4 5 6]
       [1 2] [3 4]
       [1 2 3] [1 2 3])))
+
+(deftest union-test
+  (testing "my clojure.set/union"
+    (are [x y] (= (cset/union (set x) (set y))
+                  (set (union x y)))
+      [1 2 3] [2 3 4]
+      [1 2 3] [4 5 6]
+      [1 2 3] [1 2 3]
+      [1 2 3] [3 4 5])))
