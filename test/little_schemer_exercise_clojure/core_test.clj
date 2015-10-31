@@ -1,5 +1,6 @@
 (ns little-schemer-exercise-clojure.core-test
   (:require [clojure.test :refer :all]
+            [clojure.set :as cset]
             [little-schemer-exercise-clojure.core :refer :all :as lsec]))
 
 
@@ -296,7 +297,7 @@
 
 (deftest subset?-test
   (testing "set1 is subset of set2 ?"
-    (are [x y] (= (clojure.set/subset? (set x) (set y))
+    (are [x y] (= (cset/subset? (set x) (set y))
                   (subset? x y))
       [1 2 3] [4 5 6]
       [1 2 3] [1 2]
@@ -316,8 +317,8 @@
       false [1 2] [3 4])))
 
 (deftest intersect-test
-  (testing "clojure.set/intersection function"
-    (are [x y] (= (clojure.set/intersection (set x) (set y))
+  (testing "cset/intersection function"
+    (are [x y] (= (cset/intersection (set x) (set y))
                   (set (intersect x y))) ;; i need to use set in order to work with =
       [1 2 3 4] [3 4 5 6]
       [1 2] [3 4]
