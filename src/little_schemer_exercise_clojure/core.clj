@@ -317,3 +317,13 @@
       (empty? set1) true
       (member? (first set1) set2) (subset? (rest set1) set2)
       :else false)))
+
+(defn eqset? [set1 set2]
+  (and (subset? set1 set2)
+       (subset? set2 set1)))
+
+(defn intersect? [set1 set2]
+  (if (empty? set1)
+    false
+    (or (member? (first set1) set2)
+        (intersect? (rest set1) set2))))

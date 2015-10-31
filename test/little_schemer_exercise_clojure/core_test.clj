@@ -302,3 +302,15 @@
       [1 2 3] [1 2]
       [1 2 3] [1 2 3 4 5]
       [1 3 5] [1 3 6])))
+
+(deftest eqset?-test
+  (testing "check is two set are equal"
+    (are [x y] (= (= x y) (eqset? x y))
+      [1 2 3] [1 2 3]
+      [1 2] [1])))
+
+(deftest intersect?-test
+  (testing "check if there is some instance of set1 in set2"
+    (are [res x y] (= res (intersect? x y))
+      true [1 2 3] [3 4 5]
+      false [1 2] [3 4])))
