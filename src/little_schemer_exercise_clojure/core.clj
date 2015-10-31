@@ -327,3 +327,10 @@
     false
     (or (member? (first set1) set2)
         (intersect? (rest set1) set2))))
+
+(defn intersect [set1 set2]
+  (cond
+    (empty? set1) []
+    (member? (first set1) set2) (cons (first set1)
+                                      (intersect (rest set1) set2))
+    :else (intersect (rest set1) set2)))

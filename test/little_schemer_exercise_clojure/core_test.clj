@@ -314,3 +314,11 @@
     (are [res x y] (= res (intersect? x y))
       true [1 2 3] [3 4 5]
       false [1 2] [3 4])))
+
+(deftest intersect-test
+  (testing "clojure.set/intersection function"
+    (are [x y] (= (clojure.set/intersection (set x) (set y))
+                  (set (intersect x y))) ;; i need to use set in order to work with =
+      [1 2 3 4] [3 4 5 6]
+      [1 2] [3 4]
+      [1 2 3] [1 2 3])))
