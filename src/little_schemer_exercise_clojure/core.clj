@@ -310,3 +310,10 @@
 (defn make-set1 [lat]
   (if (seq lat)
     (cons (first lat) (make-set1 (multirember (first lat) (rest lat))))))
+
+(defn subset? [set1 set2]
+  (if (and (set? set1) (set? set2))
+    (cond
+      (empty? set1) true
+      (member? (first set1) set2) (subset? (rest set1) set2)
+      :else false)))
