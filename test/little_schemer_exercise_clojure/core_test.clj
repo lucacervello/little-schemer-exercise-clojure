@@ -349,3 +349,17 @@
       [[1 2] [2]] true
       [1 [2 3]] true
       [[[1]] [2 [3]]] true)))
+
+(deftest build-test
+  (testing "simple build a pair"
+    (are [x y] (= (cons x (cons y []))
+                  (build x y))
+      1 2
+      [1 2] [3 4])))
+
+(deftest third-test
+  (testing "get the third element of the list"
+    (are [x res] (= res
+                    (third x))
+      [1 2 3] 3
+      [1 2 [3 2]] [3 2])))

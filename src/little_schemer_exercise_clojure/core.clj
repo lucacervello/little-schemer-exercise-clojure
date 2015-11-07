@@ -353,4 +353,12 @@
     (empty? x) false
     (empty? (rest x)) false
     (empty? (rest (rest x))) true
-    :else false))
+    :else false ))
+
+;; First and second are bult-in in the language
+
+(defn build [f s]
+  (cons f (cons s [])))
+
+(defn third [lst]
+  (first (rest (rest lst))))
