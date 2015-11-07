@@ -340,3 +340,12 @@
       [[1 2][3 4]] []
       [[1 2] [2 3]] [2]
       [[1 2 3 4] [1 2] [4 3 2]] [2])))
+
+(deftest a-pair?-test
+  (testing "return true if the x is a pair"
+    (are [x res] (= res
+                    (a-pair? x))
+      [1 2] true
+      [[1 2] [2]] true
+      [1 [2 3]] false
+      [[[1]] [2 [3]]] true)))

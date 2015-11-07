@@ -346,3 +346,11 @@
     (first l-set)
     (intersect (first l-set)
                (intersectall (rest l-set)))))
+
+(defn a-pair? [x]
+  (cond
+    (atom? x) false
+    (empty? x) false
+    (empty? (rest x)) false
+    (empty? (rest (rest x))) true
+    :else false))
