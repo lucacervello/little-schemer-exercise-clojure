@@ -84,7 +84,7 @@
       (cons (first lat) (multisubst new old (rest lat))))))
 
 
-;; 4. NUMBERS GAMES
+;; 4. Numbers Games
 
 (defn plus
   "define plus only with zero? inc dec"
@@ -340,3 +340,9 @@
     (empty? set1) set2
     (member? (first set1) set2) (union (rest set1) set2)
     :else (cons (first set1) (union (rest set1) set2))))
+
+(defn intersectall [l-set]
+  (if (empty? (rest l-set))
+    (first l-set)
+    (intersect (first l-set)
+               (intersectall (rest l-set)))))
