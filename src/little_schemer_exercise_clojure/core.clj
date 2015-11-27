@@ -362,3 +362,6 @@
 
 (defn third [lst]
   (first (rest (rest lst))))
+
+(defn fun? [rel]
+  (set? (firsts rel)))
